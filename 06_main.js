@@ -36,7 +36,7 @@ $("document").ready(function() {
         progress_bar: {
             in: [
                 // list the view-names of the views for which you want a progress bar
-                key_press_5.name,
+                // key_press_5.name,
             ],
              // Possible styles are "default", "separate" and "chunks"
             style: "separate",
