@@ -23,14 +23,10 @@ const intro = babeViews.intro({
     trials: 1,
     name: 'intro',
     // If you use JavaScripts Template String `I am a Template String`, you can use HTML <></> and javascript ${} inside
-    text:   `This is a sample introduction view.
+    text:   `This experiment is about mental rotation.
             <br />
             <br />
-            The introduction view welcomes the participant and gives general information
-            about the experiment. You are in the <strong>${coin}</strong> group.
-            <br />
-            <br />
-            This is a minimal experiment with one forced choice view. It can serve as a starting point for programming your own experiment.`,
+            It will take approximatly <strong>5 minutes</strong> to complete.`,
    buttonText: 'Begin the experiment'
 });
 
@@ -39,10 +35,15 @@ const instructions = babeViews.instructions({
     trials: 1,
     name: 'instrucions',
     title: 'General Instructions',
-    text:  `This is a sample instructions view.
+    text:  `In each trial you will see a picture of two geometrical objects. 
+			<br />
+			<br />
+			Compare if those objects are of same or different shape.
+			<br />
+			Give your answer using j for 'same' and f for 'different'.
             <br />
             <br />
-            Tell your participants what they are to do here.`,
+            Answer as quickly and accurately as possible.`,
     buttonText: 'go to trials'
 });
 
@@ -102,12 +103,12 @@ const thanks = babeViews.thanks({
 
 
 // Here, we initialize a forcedChoice view
-const forced_choice_2A = babeViews.keyPress({
+const key_press_5 = babeViews.keyPress({
     // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
     trials: key_press_trials.length,
     // name and trial_type should be identical to the variable name
-    name: 'forced_choice_2A',
-    trial_type: 'forced_choice_2A',
+    name: 'key_press_5',
+    trial_type: 'key_press_5',
     data: key_press_trials
 });
 
