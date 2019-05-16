@@ -46,6 +46,7 @@ const instructions = babeViews.view_generator('instructions',{
             <br />
             Answer as quickly and accurately as possible.`,
     buttonText: 'go to trials'
+    
 });
 
 
