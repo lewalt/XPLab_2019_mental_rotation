@@ -39,15 +39,37 @@ const instructions = babeViews.view_generator('instructions',{
     text:  `In each trial you will see a picture of two geometrical objects.
 			<br />
 			<br />
-			Compare if those objects are of same or different shape.
+			Compare if those objects are of the same or different shape.
 			<br />
 			Give your answer using j for 'same' and f for 'different'.
-            <br />
-            <br />
-            Answer as quickly and accurately as possible.`,
+      <br />
+      <br />
+      Answer as quickly and accurately as possible.`,
     buttonText: 'go to trials'
-    
+
 });
+
+// instructions before practice
+const instructions_before_practice = babeViews.view_generator('instructions',{
+    trials: 1,
+    name: 'instructions_before_practice',
+    title: 'Instructions before practice',
+    text:  `In the following you have 5 practice trials and receive feedback.`,
+    buttonText: 'go to practice'
+
+});
+
+// instructions before trials
+const instructions_before_trial = babeViews.view_generator('instructions',{
+    trials: 1,
+    name: 'instructions_before_trial',
+    title: 'Instructions before trial',
+    text:  `Let the real experiment begin muhahaha.`,
+    buttonText: 'go to trial'
+
+});
+
+
 
 
 // In the post test questionnaire you can ask your participants addtional questions
@@ -104,15 +126,38 @@ const thanks = babeViews.view_generator('thanks',{
 * https://babe-project.github.io/babe-docs/01_designing_experiments/01_template_views/#trial-views
 */
 
+// Here, we initialize a key_press view for the practice trial
+const practice = babeViews.view_generator('key_press',{
+    // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
+    trials: key_press_training.length,
+    // name and trial_type should be identical to the variable name
+    name: 'practice',
+    trial_type: 'practice',
+    data: key_press_training,
+    // realize 1 s inter-trial pause
+    pause: 1000,
+    // realize 500 ms fixiation cross
+    fix_duration: 500,
+    // add hook to control for correctness
+    hook: {
+      after_response_enabled: check_response
+    }
 
-// Here, we initialize a forcedChoice view
+});
+
+
+// Here, we initialize a keypress view
 const key_press_5 = babeViews.view_generator('key_press',{
     // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
-    trials: key_press_trials.length,
+    trials: key_press_task.length,
     // name and trial_type should be identical to the variable name
     name: 'key_press_5',
     trial_type: 'key_press_5',
-    data: key_press_trials
+    data: key_press_task,
+    // realize 1 s inter-trial pause
+    pause: 1000,
+    // realize 500 ms fixiation cross
+    fix_duration: 500
 
 });
 
